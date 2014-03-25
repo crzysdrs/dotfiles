@@ -10,8 +10,6 @@ alias hugs='hugs -E"emacs +%d %s"'
 alias abcde='abcde -d /dev/sr0 -o mp3'
 alias dosbox='dosbox -conf ~/.dosbox.conf'
 
-git config --global alias.lg "log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)%C(bold blue)<%an>%Creset' --abbrev-commit"
-
 # Test for an interactive shell.  There is no need to set anything
 # past this point for scp and rcp, and it's important to refrain from
 # outputting anything in those cases.
