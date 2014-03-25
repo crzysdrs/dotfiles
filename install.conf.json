@@ -1,0 +1,15 @@
+[
+    {
+        "link": {
+            "~/.bashrc":"bashrc",
+            "~/.emacs":"emacs",
+            "~/.backup.kbp":"backup.kbp",
+            "~/.dosbox.conf":"dosbox.conf"
+        }
+    },
+    {
+        "shell": [
+            ["git submodule update --init --recursive", "Installing/updating submodules"]
+        ]
+    }
+]
