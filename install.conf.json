@@ -6,7 +6,8 @@
             "~/.backup.kbp":"backup.kbp",
             "~/.dosbox.conf":"dosbox.conf",
             "~/.gitconfig": "gitconfig",
-            "~/.gitignore_global": "gitignore_global"
+            "~/.gitignore_global": "gitignore_global",
+	    "~/.gdbinit":"gdbinit"
         }
     },
     {
