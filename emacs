@@ -1,3 +1,4 @@
+; -*- mode: lisp -*-
 (custom-set-variables
   ;; custom-set-variables was added by Custom.
   ;; If you edit it by hand, you could mess it up, so be careful.
@@ -16,7 +17,6 @@
 (put 'erase-buffer 'disabled nil)
 (setq tab-width 4)
 (setq-default indent-tabs-mode nil)
-
 
 ;; For some reason grep doesn't like fontify buffer, force it
 (add-hook 'grep-mode-hook
