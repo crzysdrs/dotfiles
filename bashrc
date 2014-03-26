@@ -10,7 +10,9 @@ alias hugs='hugs -E"emacs +%d %s"'
 alias abcde='abcde -d /dev/sr0 -o mp3'
 alias dosbox='dosbox -conf ~/.dosbox.conf'
 
-source ~/.bashrc.work
+if [[ -f ~/.bashrc.work ]] ; then
+   source ~/.bashrc.work
+fi
 
 # Test for an interactive shell.  There is no need to set anything
 # past this point for scp and rcp, and it's important to refrain from
