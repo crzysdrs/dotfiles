@@ -6,10 +6,11 @@
 --min-conditional-indent=0
 --unpad-paren
 --delete-empty-lines
---align-pointer=type
---align-reference=type
+--align-pointer=name
+--align-reference=name
 --convert-tabs
 --max-code-length=80
 --lineend=linux
 --pad-oper
 --suffix=none
+--pad-header

@@ -8,6 +8,7 @@
             "~/.astylerc":"astylerc",
             "~/.gitconfig": "gitconfig",
             "~/.gitignore_global": "gitignore_global",
+            "~/.gitattributes_global": "gitattributes_global",
 	    "~/.gdbinit":"gdbinit"
         }
     },
