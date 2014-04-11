@@ -22,28 +22,25 @@
 (add-hook 'grep-mode-hook
 	  '(lambda () (font-lock-mode 1)))
 
-(setq auto-mode-alist
-      '(
-	("\\.el\\'"   . emacs-lisp-mode)
-	("\\.h\\'"    . c-mode)
-	("\\.cc\\'"   . c++-mode)
-	("\\.cxx\\'"  . c++-mode)
-	("\\.cpp\\'"  . c++-mode)
-	("\\.c\\'"    . c-mode)
-	("\\.idl\\'"  . indented-text-mode)
-	("\\.v\\'"    . verilog-mode)
-	("\\.sv\\'"   . verilog-mode)
-	("\\.svh\\'"  . verilog-mode)
-	("\\.vcd\\'"  . indented-text-mode)
-	("\\.y\\'"    . indented-text-mode)
-	("\\.l\\'"    . indented-text-mode)
-	("\\.idl\\'"  . indented-text-mode)
-	("\\.txt\\'"  . indented-text-mode)
-	("\\.tex\\'"  . TeX-mode)
-	("\\.diff\\'" . diff-mode)
-	("\\.cdiff\\'" . diff-mode)
-	("\\.def.h\\'" . text-mode)
-	))
+
+(setq auto-mode-alist 
+      (append 
+       '(
+         ("\\.el\\'"   . emacs-lisp-mode)
+         ("\\.cc\\'"   . c++-mode)
+         ("\\.idl\\'"  . indented-text-mode)
+         ("\\.v\\'"    . verilog-mode)
+         ("\\.sv\\'"   . verilog-mode)
+         ("\\.svh\\'"  . verilog-mode)
+         ("\\.y\\'"    . indented-text-mode)
+         ("\\.l\\'"    . indented-text-mode)
+         ("\\.idl\\'"  . indented-text-mode)
+         ("\\.tex\\'"  . TeX-mode)
+         ("\\.diff\\'" . diff-mode) 
+         )
+       auto-mode-alist
+       )
+      )
 
 (require 'cc-mode)
 (require 'cl)
