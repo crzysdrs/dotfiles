@@ -17,3 +17,8 @@
 
 [diff "javaclass"]
       textconv = javap -c
+      cachetextconv = true
+
+[filter "c_code"]
+        smudge = 
+        clean = astyle < %f
