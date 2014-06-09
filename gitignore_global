@@ -1,7 +1,9 @@
-# Temporary Files 
+# Temporary Files #
+###################
 *~
 \#*
 .\#*
+*.swp
 
 # Compiled source #
 ###################

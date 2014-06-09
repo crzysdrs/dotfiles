@@ -10,6 +10,7 @@
 
 [alias]
 	lg = log --graph --pretty=tformat:'%Cred%h%Creset -%C(magenta)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative
+
 [core]
 	excludesfile = ~/.gitignore_global
         attributesfile = ~/.gitattributes_global
@@ -20,5 +21,19 @@
       cachetextconv = true
 
 [filter "c_code"]
-        smudge = 
-        clean = astyle < %f
+      clean = astyle --options=$HOME/.astylerc < %f
+
+[filter "java_code"]
+      clean = astyle --options=$HOME/.javastyle < %f
+
+[diff "odf"]
+      textconv = odf2txt --break-sentences
+
+[diff "markdown"]
+      textconv = pandoc -t markdown_github --no-wrap --filter=PDsentences.hs
+
+[man]
+      viewer = catman
+
+[man "catman"]
+     cmd = man -P cat

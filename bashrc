@@ -9,10 +9,7 @@ export PATH=$HOME/bin/:$PATH
 alias hugs='hugs -E"emacs +%d %s"'
 alias abcde='abcde -d /dev/sr0 -o mp3'
 alias dosbox='dosbox -conf ~/.dosbox.conf'
-
-if [[ -f ~/.bashrc.work ]] ; then
-   source ~/.bashrc.work
-fi
+alias ldis='llvm-dis -o -'
 
 # Test for an interactive shell.  There is no need to set anything
 # past this point for scp and rcp, and it's important to refrain from

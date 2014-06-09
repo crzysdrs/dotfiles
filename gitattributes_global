@@ -1,4 +1,3 @@
 *.class diff=javaclass
-*.c   filter=c_code
-*.cpp filter=c_code
-*.h   filter=c_code
+*.odt   diff=odf
+*.md    diff=markdown

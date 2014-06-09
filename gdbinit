@@ -1,1 +1,1 @@
-source ~/.gdbinit.work
+#this space intentionally left blank
