@@ -3,7 +3,7 @@
         "link": {
             "~/.bashrc":"bashrc",
             "~/.emacs":"emacs",
-            "~/.backup.kbp":"backup.kbp",
+            "~/.config/sbackup/sbackup.conf":"sbackup.conf",
             "~/.dosbox.conf":"dosbox.conf",
             "~/.astylerc":"astylerc",
             "~/.gitconfig": "gitconfig",
