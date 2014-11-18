@@ -1,0 +1,15 @@
+
+MATCH_PATH = [
+    # (directory pattern, identity)
+]
+
+MATCH_ARGV = [
+    # (argv pattern, identity)
+    ("cs.pdx.edu", "school"),
+    ("blockade$", "home"),
+    ("github.com$", "github"),
+]
+
+SSH_ADD_OPTIONS = {
+    # "ident" : "arg",
+}

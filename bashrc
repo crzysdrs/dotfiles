@@ -6,6 +6,8 @@
 # anything or bad things will happen !
 
 export PATH=$HOME/bin/:$PATH
+export EDITOR=emacs
+
 alias hugs='hugs -E"emacs +%d %s"'
 alias abcde='abcde -d /dev/sr0 -o mp3'
 alias dosbox='dosbox -conf ~/.dosbox.conf'

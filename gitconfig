@@ -20,12 +20,6 @@
       textconv = javap -c
       cachetextconv = true
 
-[filter "c_code"]
-      clean = astyle --options=$HOME/.astylerc < %f
-
-[filter "java_code"]
-      clean = astyle --options=$HOME/.javastyle < %f
-
 [diff "odf"]
       textconv = odf2txt --break-sentences
 
