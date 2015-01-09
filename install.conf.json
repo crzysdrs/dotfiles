@@ -1,5 +1,10 @@
 [
     {
+        "shell": [
+            ["mkdir -p ~/bin/", "Creating home bin dir."]
+        ]
+    },
+    {
         "link": {
             "~/.bashrc":"bashrc",
             "~/.emacs":"emacs",
@@ -10,6 +15,7 @@
             "~/.gitignore_global": "gitignore_global",
             "~/.gitattributes_global": "gitattributes_global",
             "~/.ssh-ident":"ssh-ident",
+            "~/bin/ssh":"ssh-ident-repo/ssh-ident",
 	    "~/.gdbinit":"gdbinit"
         }
     },
