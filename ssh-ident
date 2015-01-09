@@ -2,9 +2,10 @@ MATCH_ORDER = [
    # (argv or path, pattern, identity)
    ("path", "gitolite-admin",      "gitolite-admin"),
    ("argv", "cs.pdx.edu",          "school"),
-   ("argv", "crzysdrs.sytes.net$", "home"),
-   ("argv", "blockade$",           "home"),
-   ("argv", "github.com$",         "github"),
+   ("argv", "crzysdrs.sytes.net",  "home"),
+   ("argv", "blockade",            "home"),
+   ("argv", "tooka",               "home"),
+   ("argv", "github.com",          "github"),
 ]
 SSH_ADD_OPTIONS = {
     # "ident" : "arg",
