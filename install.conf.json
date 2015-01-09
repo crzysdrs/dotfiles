@@ -1,7 +1,14 @@
 [
     {
+        "clean": [
+            "~",
+            "~/bin/",
+            "~/.config/sbackup"
+        ]
+    },
+    {
         "shell": [
-            ["mkdir -p ~/bin/", "Creating home bin dir."]
+            ["mkdir -p ~/bin/ ~/.config/sbackup/", "Creating dirs."]
         ]
     },
     {
@@ -11,12 +18,11 @@
             "~/.config/sbackup/sbackup.conf":"sbackup.conf",
             "~/.dosbox.conf":"dosbox.conf",
             "~/.astylerc":"astylerc",
-            "~/.gitconfig": "gitconfig",
-            "~/.gitignore_global": "gitignore_global",
-            "~/.gitattributes_global": "gitattributes_global",
+            "~/.gitconfig": "gitfiles/gitconfig",
+            "~/.gitfiles":"gitfiles",
             "~/.ssh-ident":"ssh-ident",
             "~/bin/ssh":"ssh-ident-repo/ssh-ident",
-	    "~/.gdbinit":"gdbinit"
+            "~/.gdbinit":"gdbinit"
         }
     },
     {

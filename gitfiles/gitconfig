@@ -12,8 +12,8 @@
 	lg = log --graph --pretty=tformat:'%Cred%h%Creset -%C(magenta)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative
 
 [core]
-	excludesfile = ~/.gitignore_global
-        attributesfile = ~/.gitattributes_global
+	excludesfile = ~/.gitfiles/gitignore
+        attributesfile = ~/.gitfiles/gitattributes
 	pager = 
 
 [diff "javaclass"]
