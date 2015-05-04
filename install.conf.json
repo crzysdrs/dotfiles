@@ -22,6 +22,7 @@
             "~/.gitfiles":"gitfiles",
             "~/.ssh-ident":"ssh-ident",
             "~/bin/ssh":"ssh-ident-repo/ssh-ident",
+            "~/bin/mkident":"bin/mkident",
             "~/.gdbinit":"gdbinit"
         }
     },

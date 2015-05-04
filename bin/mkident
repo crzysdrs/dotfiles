@@ -1,0 +1,17 @@
+#!/usr/bin/env python
+import os
+import sys
+
+for x in sys.argv[1:]:
+    newdir = "%s/.ssh/identities/%s" % (os.environ['HOME'], x)
+    rsa = "%s/id_rsa" % newdir
+    rsa_pub = "%s.pub" % rsa
+    if not os.path.exists(newdir):
+        os.makedirs(newdir)
+    if os.path.exists(rsa):
+        print "Identity for %s already exists" % x
+    else:
+        print "Generating keys for %s" % x
+        os.system("ssh-keygen -t rsa -b 4096 -f %s -C %s@%s" % (rsa, os.environ['USER'], os.environ['HOSTNAME']))
+    f = open(rsa_pub)
+    print f.read()
