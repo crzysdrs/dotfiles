@@ -254,3 +254,7 @@
 
 (autoload 'ansi-color-for-comint-mode-on "ansi-color" nil t)
 (add-hook 'shell-mode-hook 'ansi-color-for-comint-mode-on)
+
+(setq server-name (concat "emacs-server-" (number-to-string (random))))
+(setenv "EDITOR" (concat "emacsclient -s " server-name))
+(server-start)

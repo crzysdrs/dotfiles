@@ -6,7 +6,9 @@
 # anything or bad things will happen !
 
 export PATH=$HOME/bin/:$PATH
-export EDITOR=emacs
+if [[ -z "$EDITOR" ]]; then
+   export EDITOR=emacs
+fi
 
 alias hugs='hugs -E"emacs +%d %s"'
 alias abcde='abcde -d /dev/sr0 -o mp3'
@@ -85,3 +87,6 @@ fi
 
 # Try to keep environment pollution down, EPA loves us.
 unset use_color safe_term match_lhs
+
+# added by travis gem
+[ -f /home/crzysdrs/.travis/travis.sh ] && source /home/crzysdrs/.travis/travis.sh
