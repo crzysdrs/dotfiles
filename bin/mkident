@@ -1,6 +1,7 @@
 #!/usr/bin/env python
 import os
 import sys
+import socket
 
 for x in sys.argv[1:]:
     newdir = "%s/.ssh/identities/%s" % (os.environ['HOME'], x)
@@ -12,6 +13,6 @@ for x in sys.argv[1:]:
         print "Identity for %s already exists" % x
     else:
         print "Generating keys for %s" % x
-        os.system("ssh-keygen -t rsa -b 4096 -f %s -C %s@%s" % (rsa, os.environ['USER'], os.environ['HOSTNAME']))
+        os.system("ssh-keygen -t rsa -b 4096 -f %s -C %s@%s" % (rsa, os.environ['USER'], socket.gethostname()))
     f = open(rsa_pub)
     print f.read()
