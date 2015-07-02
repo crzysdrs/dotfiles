@@ -5,7 +5,7 @@
 # that can't tolerate any output.  So make sure this doesn't display
 # anything or bad things will happen !
 
-export PATH=$HOME/bin/:$PATH
+export PATH=$HOME/bin/:$HOME/.local/bin/:$PATH
 if [[ -z "$EDITOR" ]]; then
    export EDITOR=emacs
 fi
