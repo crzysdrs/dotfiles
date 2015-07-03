@@ -258,3 +258,5 @@
 (setq server-name (concat "emacs-server-" (number-to-string (random))))
 (setenv "EDITOR" (concat "emacsclient -s " server-name))
 (server-start)
+
+(add-to-list 'tramp-remote-path 'tramp-own-remote-path)
