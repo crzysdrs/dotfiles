@@ -5,7 +5,7 @@
 # that can't tolerate any output.  So make sure this doesn't display
 # anything or bad things will happen !
 
-export PATH=$HOME/bin/:$PATH
+export PATH=$HOME/bin/:$HOME/.local/bin/:$PATH
 if [[ -z "$EDITOR" ]]; then
    export EDITOR=emacs
 fi
@@ -87,6 +87,3 @@ fi
 
 # Try to keep environment pollution down, EPA loves us.
 unset use_color safe_term match_lhs
-
-# added by travis gem
-[ -f /home/crzysdrs/.travis/travis.sh ] && source /home/crzysdrs/.travis/travis.sh
