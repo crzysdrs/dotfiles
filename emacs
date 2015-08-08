@@ -1,4 +1,22 @@
 ; -*- mode: lisp -*-
+
+(add-to-list 'load-path "~/.emacs.d/el-get/el-get")
+
+(unless (require 'el-get nil 'noerror)
+  (with-current-buffer
+      (url-retrieve-synchronously
+       "https://raw.githubusercontent.com/dimitri/el-get/master/el-get-install.el")
+    (goto-char (point-max))
+    (eval-print-last-sexp)))
+
+(add-to-list 'el-get-recipe-path "~/.emacs.d/el-get-user/recipes")
+(el-get 'sync)
+(el-get-bundle verilog-mode)
+(el-get-bundle framemove)
+(el-get-bundle magit)
+(el-get-bundle markdown-mode)
+(el-get-bundle latex-preview-pane)
+
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
@@ -28,10 +46,12 @@
        '(
          ("\\.el\\'"   . emacs-lisp-mode)
          ("\\.cc\\'"   . c++-mode)
+         ("\\.cu\\'"   . c++-mode)
          ("\\.idl\\'"  . indented-text-mode)
          ("\\.v\\'"    . verilog-mode)
          ("\\.sv\\'"   . verilog-mode)
          ("\\.svh\\'"  . verilog-mode)
+         ("\\.md\\'"  . markdown-mode)
          ("\\.y\\'"    . indented-text-mode)
          ("\\.l\\'"    . indented-text-mode)
          ("\\.idl\\'"  . indented-text-mode)
@@ -259,4 +279,12 @@
 (setenv "EDITOR" (concat "emacsclient -s " server-name))
 (server-start)
 
+(require 'tramp)
 (add-to-list 'tramp-remote-path 'tramp-own-remote-path)
+
+(require 'framemove)
+(global-set-key (kbd "C-c <left>")  'windmove-left)
+(global-set-key (kbd "C-c <right>") 'windmove-right)
+(global-set-key (kbd "C-c <up>")    'windmove-up)
+(global-set-key (kbd "C-c <down>")  'windmove-down)
+(setq framemove-hook-into-windmove t)
