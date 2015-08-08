@@ -16,6 +16,10 @@
 (el-get-bundle magit)
 (el-get-bundle markdown-mode)
 (el-get-bundle latex-preview-pane)
+(el-get-bundle smex)
+(global-set-key (kbd "M-x") 'smex)
+
+(require 'uniquify)
 
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
