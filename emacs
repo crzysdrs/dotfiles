@@ -61,11 +61,14 @@
          ("\\.idl\\'"  . indented-text-mode)
          ("\\.tex\\'"  . TeX-mode)
          ("\\.diff\\'" . diff-mode) 
-         ("\\.j\\'" . java-mode) 
+         ("\\.j\\'" . java-mode)
+         ("\\.hs\\'" . haskell-mode)
          )
        auto-mode-alist
        )
       )
+
+(add-hook 'haskell-mode-hook 'turn-on-haskell-indent)
 
 (require 'cc-mode)
 (require 'cl)
