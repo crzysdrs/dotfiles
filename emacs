@@ -93,6 +93,7 @@
 (define-key global-map [f6]       'next-error)
 (define-key global-map [f7]       'compile)
 (define-key global-map [f8]       'sort-lines)
+(global-set-key (kbd "C-x SPC") 'gud-break)
 
 (if (not (boundp 'ctl-z-map)) (setq ctl-z-map (make-keymap)))
 (define-key global-map [(control z)]   ctl-z-map)
