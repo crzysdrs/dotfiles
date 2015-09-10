@@ -21,9 +21,9 @@
 (global-set-key (kbd "M-x") 'smex)
 
 (require 'uniquify)
-
 (tool-bar-mode -1)
 (menu-bar-mode -1)
+(add-hook 'before-save-hook 'delete-trailing-whitespace)
 
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
@@ -46,8 +46,13 @@
 (setq-default indent-tabs-mode nil)
 (global-font-lock-mode t)
 
-(setq auto-mode-alist 
-      (append 
+(add-hook 'comint-mode-hook
+	  '(lambda ()
+	     (define-key comint-mode-map "\M-p" 'comint-previous-matching-input-from-input)
+	     ))
+
+(setq auto-mode-alist
+      (append
        '(
          ("\\.el\\'"   . emacs-lisp-mode)
          ("\\.cc\\'"   . c++-mode)
@@ -61,7 +66,7 @@
          ("\\.l\\'"    . indented-text-mode)
          ("\\.idl\\'"  . indented-text-mode)
          ("\\.tex\\'"  . TeX-mode)
-         ("\\.diff\\'" . diff-mode) 
+         ("\\.diff\\'" . diff-mode)
          ("\\.j\\'"    . java-mode)
          ("\\.hs\\'"   . haskell-mode)
          )
@@ -184,9 +189,9 @@
 	      (when (string-match comint-prompt-regexp str)
 		(cd (file-symlink-p (format "/proc/%s/cwd" (process-id (get-buffer-process (current-buffer)))))))))))
 )
-(setq compilation-buffer-name-function 
+(setq compilation-buffer-name-function
       (lambda (mode-name)
-	(cond ((equal mode-name "grep")	       
+	(cond ((equal mode-name "grep")
 	       (concat "#" (downcase mode-name) "#"))
 	      (t (concat "*" (downcase mode-name) "*")))))
 
