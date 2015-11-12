@@ -23,7 +23,10 @@
 (require 'uniquify)
 (tool-bar-mode -1)
 (menu-bar-mode -1)
-(add-hook 'before-save-hook 'delete-trailing-whitespace)
+(add-hook 'before-save-hook
+          '(lambda ()
+             (when (not (derived-mode-p 'markdown-mode))
+               ('delete-trailing-whitespace))))
 
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
@@ -62,6 +65,7 @@
          ("\\.sv\\'"   . verilog-mode)
          ("\\.svh\\'"  . verilog-mode)
          ("\\.md\\'"   . markdown-mode)
+         ("\\.mkd\\'"   . markdown-mode)
          ("\\.y\\'"    . indented-text-mode)
          ("\\.l\\'"    . indented-text-mode)
          ("\\.idl\\'"  . indented-text-mode)
