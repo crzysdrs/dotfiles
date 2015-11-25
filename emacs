@@ -26,7 +26,8 @@
 (add-hook 'before-save-hook
           '(lambda ()
              (when (not (derived-mode-p 'markdown-mode))
-               ('delete-trailing-whitespace))))
+               (delete-trailing-whitespace)))
+          )
 
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
