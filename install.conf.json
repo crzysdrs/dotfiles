@@ -21,7 +21,8 @@
             "~/.gitconfig": "gitfiles/gitconfig",
             "~/.gitfiles":"gitfiles",
             "~/.ssh-ident":"ssh-ident",
-            "~/bin/ssh":"ssh-ident-repo/ssh-ident",
+            "~/bin/ssh-ident":"ssh-ident-repo/ssh-ident",
+            "~/bin/ssh":"321cb7c1160330b01274/ssh-srv-wrapper.sh",
             "~/bin/mkident":"bin/mkident",
             "~/.gdbinit":"gdbinit"
         }

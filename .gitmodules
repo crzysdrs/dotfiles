@@ -5,3 +5,6 @@
 [submodule "ssh-ident-repo"]
 	path = ssh-ident-repo
 	url = git@github.com:crzysdrs/ssh-ident
+[submodule "321cb7c1160330b01274"]
+	path = 321cb7c1160330b01274
+	url = git@gist.github.com:321cb7c1160330b01274.git

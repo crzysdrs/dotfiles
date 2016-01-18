@@ -5,6 +5,7 @@
 # that can't tolerate any output.  So make sure this doesn't display
 # anything or bad things will happen !
 
+export SSH_BIN=$HOME/bin/ssh-ident
 export PATH=$HOME/bin/:$HOME/.local/bin/:$HOME/.cabal/bin:$PATH
 if [[ -z "$EDITOR" ]]; then
    export EDITOR=emacs
@@ -87,3 +88,5 @@ fi
 
 # Try to keep environment pollution down, EPA loves us.
 unset use_color safe_term match_lhs
+
+export CUDA_BIN_PATH=/usr/local/cuda-7.5/bin/
