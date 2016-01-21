@@ -3,12 +3,13 @@
         "clean": [
             "~",
             "~/bin/",
-            "~/.config/sbackup"
+            "~/.config/sbackup",
+            "~/.ssh/"
         ]
     },
     {
         "shell": [
-            ["mkdir -p ~/bin/ ~/.config/sbackup/", "Creating dirs."]
+            ["mkdir -p ~/bin/ ~/.ssh/ ~/.config/sbackup/ ", "Creating dirs."]
         ]
     },
     {
@@ -21,6 +22,7 @@
             "~/.gitconfig": "gitfiles/gitconfig",
             "~/.gitfiles":"gitfiles",
             "~/.ssh-ident":"ssh-ident",
+            "~/.ssh/config":"sshconfig",
             "~/bin/ssh-ident":"ssh-ident-repo/ssh-ident",
             "~/bin/ssh":"321cb7c1160330b01274/ssh-srv-wrapper.sh",
             "~/bin/mkident":"bin/mkident",

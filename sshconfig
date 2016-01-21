@@ -1,0 +1,14 @@
+Host seclab.cs.pdx.edu
+     Hostname seclab17.cs.pdx.edu
+
+Host seclab*.cs.pdx.edu
+     User vm
+
+Host *.cs.pdx.edu
+     User msouders
+
+Host *.cs.pdx.edu !linuxlab.cs.pdx.edu
+     ProxyCommand ssh -W %h:%p linuxlab.cs.pdx.edu
+
+Host *.crzysdrs.net
+     User crzysdrs
