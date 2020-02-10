@@ -1,15 +1,11 @@
 ; -*- mode: lisp -*-
 
-(require 'package)
-(add-to-list
-  'package-archives
-  '("melpa" . "http://melpa.org/packages/") t)
-(package-initialize)
-(package-refresh-contents)
-
-;; Install Intero
-(package-install 'intero)
-(add-hook 'haskell-mode-hook 'intero-mode)
+(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ )
 
 (add-to-list 'load-path "~/.emacs.d/el-get/el-get")
 
@@ -19,41 +15,35 @@
        "https://raw.githubusercontent.com/dimitri/el-get/master/el-get-install.el")
     (goto-char (point-max))
     (eval-print-last-sexp)))
-
+(require 'el-get-elpa)
+; M-x el-get-elpa-build-local-recipes
 (add-to-list 'el-get-recipe-path "~/.emacs.d/el-get-user/recipes")
 (el-get 'sync)
+(el-get-bundle vlfi)
 (el-get-bundle verilog-mode)
 (el-get-bundle framemove)
 (el-get-bundle magit)
 (el-get-bundle markdown-mode)
 (el-get-bundle latex-preview-pane)
 (el-get-bundle dtrt-indent)
+(el-get-bundle lsp-mode)
 (el-get-bundle smex)
+(el-get-bundle flycheck)
+(el-get-bundle emacs-racer)
+(el-get-bundle rustic)
+
 (global-set-key (kbd "M-x") 'smex)
+
+(setq rustic-lsp-server 'rust-analyzer)
 
 (require 'uniquify)
 (tool-bar-mode -1)
 (menu-bar-mode -1)
-(add-hook 'before-save-hook
-          '(lambda ()
-             (when (not (derived-mode-p 'markdown-mode))
-               (delete-trailing-whitespace)))
-          )
-
-(custom-set-variables
- ;; custom-set-variables was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- '(inhibit-startup-screen t)
- '(load-home-init-file t t)
- '(scheme-program-name "guile"))
-(custom-set-faces
- ;; custom-set-faces was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- '(default ((t (:family "DejaVu Sans Mono" :foundry "unknown" :slant normal :weight normal :height 90 :width normal)))))
+;; (add-hook 'before-save-hook
+;;           '(lambda ()
+;;              (when (not (derived-mode-p 'markdown-mode))
+;;                (delete-trailing-whitespace)))
+;;           )
 
 (setq delete-key-deletes-forward t)
 (put 'erase-buffer 'disabled nil)
@@ -176,14 +166,14 @@
 
 ;; Base of shell mode and gud mode and probably other modes too
 
-(cond
- ((file-accessible-directory-p "/proc")
-  (add-hook 'comint-preoutput-filter-functions
-	  (lambda (str)
-	    (prog1 str
-	      (when (string-match comint-prompt-regexp str)
-		(cd (file-symlink-p (format "/proc/%s/cwd" (process-id (get-buffer-process (current-buffer)))))))))))
-)
+;; (cond
+;;  ((file-accessible-directory-p "/proc")
+;;   (add-hook 'comint-preoutput-filter-functions
+;; 	  (lambda (str)
+;; 	    (prog1 str
+;; 	      (when (string-match comint-prompt-regexp str)
+;; 		(cd (file-symlink-p (format "/proc/%s/cwd" (process-id (get-buffer-process (current-buffer)))))))))))
+;; )
 (setq compilation-buffer-name-function
       (lambda (mode-name)
 	(cond ((equal mode-name "grep")
@@ -203,3 +193,9 @@
 (global-set-key (kbd "C-c <up>")    'windmove-up)
 (global-set-key (kbd "C-c <down>")  'windmove-down)
 (setq framemove-hook-into-windmove t)
+(custom-set-variables
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(package-selected-packages (quote (rustic))))

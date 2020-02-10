@@ -7,6 +7,10 @@
 
 export SSH_BIN=$HOME/bin/ssh-ident
 export PATH=$HOME/bin/:$HOME/.local/bin/:$HOME/.cabal/bin:$PATH
+export PATH=$PATH:$HOME/proj/cs140e/aarch64-none-elf/bin/
+
+source $HOME/.cargo/env
+
 if [[ -z "$EDITOR" ]]; then
    export EDITOR=emacs
 fi
@@ -15,6 +19,10 @@ alias hugs='hugs -E"emacs +%d %s"'
 alias abcde='abcde -d /dev/sr0 -o mp3'
 alias dosbox='dosbox -conf ~/.dosbox.conf'
 alias ldis='llvm-dis -o -'
+
+export CLASSPATH=".:/usr/local/lib/antlr-4.7-complete.jar:$CLASSPATH"
+alias antlr4='java -jar /usr/local/lib/antlr-4.7-complete.jar'
+alias grun='java org.antlr.v4.gui.TestRig'
 
 # Test for an interactive shell.  There is no need to set anything
 # past this point for scp and rcp, and it's important to refrain from
@@ -90,3 +98,4 @@ fi
 unset use_color safe_term match_lhs
 
 export CUDA_BIN_PATH=/usr/local/cuda-7.5/bin/
+#export PATH="$(npm bin):$PATH"
