@@ -9,16 +9,21 @@
 
 (add-to-list 'load-path "~/.emacs.d/el-get/el-get")
 
+(setq package-check-signature nil)
 (unless (require 'el-get nil 'noerror)
-  (with-current-buffer
-      (url-retrieve-synchronously
-       "https://raw.githubusercontent.com/dimitri/el-get/master/el-get-install.el")
-    (goto-char (point-max))
-    (eval-print-last-sexp)))
-(require 'el-get-elpa)
-; M-x el-get-elpa-build-local-recipes
+  (require 'package)
+  (add-to-list 'package-archives
+               '("melpa" . "http://melpa.org/packages/")
+               '("gnu" . "http://elpa.gnu.org/packages/")
+               )
+  (package-refresh-contents)
+  (package-initialize)
+  (package-install 'el-get)
+    (require 'el-get))
+
 (add-to-list 'el-get-recipe-path "~/.emacs.d/el-get-user/recipes")
-(el-get 'sync)
+(require 'el-get-elpa)
+
 (el-get-bundle vlfi)
 (el-get-bundle verilog-mode)
 (el-get-bundle framemove)
@@ -31,6 +36,13 @@
 (el-get-bundle flycheck)
 (el-get-bundle emacs-racer)
 (el-get-bundle rustic)
+(el-get 'sync)
+
+;; Added by Package.el.  This must come before configurations of
+;; installed packages.  Don't delete this line.  If you don't want it,
+;; just comment it out by adding a semicolon to the start of the line.
+;; You may delete these explanatory comments.
+(package-initialize)
 
 (global-set-key (kbd "M-x") 'smex)
 
