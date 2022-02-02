@@ -15,7 +15,7 @@
     {
         "link": {
             "~/.bashrc":"bashrc",
-            "~/.emacs":"emacs",
+            "~/.doom.d":"doom.d",
             "~/.config/sbackup/sbackup.conf":"sbackup.conf",
             "~/.dosbox.conf":"dosbox.conf",
             "~/.astylerc":"astylerc",

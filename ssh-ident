@@ -5,7 +5,9 @@ MATCH_ORDER = [
    ("argv", "crzysdrs.sytes.net",  "home"),
    ("argv", "blockade",            "home"),
    ("argv", "tooka",               "home"),
+   ("argv", "slate",               "home"),
    ("argv", "github.com",          "github"),
+   ("argv", "amazonaws",           "amazon"),
 ]
 SSH_ADD_OPTIONS = {
     # "ident" : "arg",

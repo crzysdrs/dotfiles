@@ -8,6 +8,7 @@
 export SSH_BIN=$HOME/bin/ssh-ident
 export PATH=$HOME/bin/:$HOME/.local/bin/:$HOME/.cabal/bin:$PATH
 export PATH=$PATH:$HOME/proj/cs140e/aarch64-none-elf/bin/
+export PATH=$PATH:~/.emacs.d/bin/
 
 source $HOME/.cargo/env
 
@@ -19,6 +20,7 @@ alias hugs='hugs -E"emacs +%d %s"'
 alias abcde='abcde -d /dev/sr0 -o mp3'
 alias dosbox='dosbox -conf ~/.dosbox.conf'
 alias ldis='llvm-dis -o -'
+alias scp='scp -S ssh-ident'
 
 export CLASSPATH=".:/usr/local/lib/antlr-4.7-complete.jar:$CLASSPATH"
 alias antlr4='java -jar /usr/local/lib/antlr-4.7-complete.jar'

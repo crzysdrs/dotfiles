@@ -23,8 +23,8 @@
 [diff "odf"]
       textconv = odf2txt --break-sentences
 
-[diff "markdown"]
-      textconv = pandoc -t markdown_github --no-wrap --filter=PDsentences.hs
+#[diff "markdown"]
+#      textconv = pandoc -t markdown_github --no-wrap --filter=PDsentences.hs
 
 [man]
       viewer = catman
