@@ -63,6 +63,8 @@
  )
 
 (remove-hook! 'shell-mode-hook #'hide-mode-line-mode t)
+(add-hook! 'shell-mode-hook 'visual-line-mode)
+
 (remove-hook! 'doom-first-buffer-hook #'smartparens-global-mode)
 
 (add-hook! 'comint-mode-hook
