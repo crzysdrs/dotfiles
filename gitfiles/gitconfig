@@ -31,3 +31,15 @@
 
 [man "catman"]
      cmd = man -P cat
+
+[credential]
+     helper = store
+
+[mergetool "meld"]
+     cmd = meld --auto-merge "$LOCAL" "$BASE" "$REMOTE" --output "$MERGED"
+
+[diff]
+     tool = "meld"
+
+[difftool "meld"]
+     cmd = meld "$LOCAL" "$REMOTE"
