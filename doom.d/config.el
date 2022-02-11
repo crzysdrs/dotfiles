@@ -62,9 +62,13 @@
  "C-x r" 'nil
  )
 
-(require 'shell)
 (remove-hook! 'shell-mode-hook #'hide-mode-line-mode t)
-(remove-hook 'doom-first-buffer-hook #'smartparens-global-mode)
+(remove-hook! 'doom-first-buffer-hook #'smartparens-global-mode)
+
+(add-hook! 'comint-mode-hook
+	   '(lambda ()
+	     (define-key comint-mode-map "\M-p" 'comint-previous-matching-input-from-input)
+	     ))
 
 (map!
  "<f7>" #'compile
