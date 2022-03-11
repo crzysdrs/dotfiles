@@ -15,7 +15,7 @@
     {
         "link": {
             "~/.bashrc":"bashrc",
-            "~/.doom.d":"doom.d",
+            "~/.emacs":"emacs",
             "~/.config/sbackup/sbackup.conf":"sbackup.conf",
             "~/.dosbox.conf":"dosbox.conf",
             "~/.astylerc":"astylerc",
@@ -31,10 +31,7 @@
     },
     {
         "shell": [
-            ["git submodule update --init --recursive", "Installing/updating submodules"],
-            ["file ~/.emacs.d || git clone --depth 1 https://github.com/hlissner/doom-emacs ~/.emacs.d", "Cloning Doom Emacs"],
-            ["yes | doom install", "Installing Doom Emacs"],
-            ["doom sync", "Syncing Doom Emacs"]
+            ["git submodule update --init --recursive", "Installing/updating submodules"]
         ]
     }
 ]
