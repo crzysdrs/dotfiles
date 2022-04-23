@@ -61,8 +61,8 @@
 	       (defvar lsp-eldoc-render-all t)
 	       (defvar lsp-idle-delay 0.6)
 	       ;; Inlay Hints either do not work or have been disabled in rust analyzer
-	       ;;(defvar lsp-rust-analyzer-inlay-hints-mode t)
-	       ;;(defvar lsp-rust-analyzer-server-display-inlay-hints t)
+	       (defvar lsp-rust-analyzer-inlay-hints-mode t)
+	       (defvar lsp-rust-analyzer-server-display-inlay-hints t)
 
 	       ;;For debugging
 	       ;; (defvar lsp-log-io t)
@@ -95,7 +95,7 @@
 (define-key global-map "\C-cg"    'goto-line)
 (define-key global-map "\C-r"     'isearch-backward-regexp)
 (define-key global-map "\C-s"     'isearch-forward-regexp)
-(define-key global-map "\M-g"     'grep)
+(define-key global-map "\M-g"     'counsel-rg)
 (define-key global-map "\C-cm"    'compile)
 (define-key global-map "\C-xr"    'rename-buffer)
 (define-key global-map "\C-x/"    'point-to-register)
