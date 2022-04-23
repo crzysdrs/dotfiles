@@ -18,7 +18,7 @@
 (setq-default indent-tabs-mode nil)
 (global-font-lock-mode t)
 (setq inhibit-startup-screen t)
-
+(global-auto-revert-mode t)
 (add-hook 'comint-mode-hook
 	  '(lambda ()
 	     (define-key comint-mode-map "\M-p" 'comint-previous-matching-input-from-input)
@@ -42,6 +42,7 @@
 	       (defvar rustic-format-on-save t)
 	       (defvar rustic-format-display-method 'ignore)
 	       ;;(defvar rustic-lsp-format t)
+               ;;(push 'rustic-clippy flycheck-checkers)
 	       )
 (el-get-bundle framemove
 	       (global-set-key (kbd "C-c <left>")  'windmove-left)
@@ -64,7 +65,9 @@
 	       ;;(defvar lsp-rust-analyzer-server-display-inlay-hints t)
 
 	       ;;For debugging
-	       (defvar lsp-log-io t)
+	       ;; (defvar lsp-log-io t)
+               (setq gc-cons-threshold 100000000)
+               (setq read-process-output-max (* 1024 1024))
 	       )
 (el-get-bundle smex	      
 	       (global-set-key (kbd "M-x") 'smex)
@@ -80,9 +83,14 @@
 (el-get-bundle doom-modeline
   (doom-modeline-mode 1)
   )
+
+(el-get-bundle docker-tramp)
+(el-get-bundle ccls)
+
 (el-get 'sync)
 
 (require 'cc-mode)
+(require 'ivy)
 (define-key ivy-minibuffer-map (kbd "TAB") 'ivy-partial)
 (define-key global-map "\C-cg"    'goto-line)
 (define-key global-map "\C-r"     'isearch-backward-regexp)
@@ -131,4 +139,4 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(package-selected-packages '(company project ivy)))
+ '(package-selected-packages '(ccls company project ivy)))

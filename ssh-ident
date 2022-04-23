@@ -8,7 +8,9 @@ MATCH_ORDER = [
    ("argv", "slate",               "home"),
    ("argv", "github.com",          "github"),
    ("argv", "amazonaws",           "amazon"),
+   ("argv", "gitlab.com",          "rs_gitlab")
 ]
+
 SSH_ADD_OPTIONS = {
     # "ident" : "arg",
 }

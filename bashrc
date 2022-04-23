@@ -9,6 +9,7 @@ export SSH_BIN=$HOME/bin/ssh-ident
 export PATH=$HOME/bin/:$HOME/.local/bin/:$HOME/.cabal/bin:$PATH
 export PATH=$PATH:$HOME/proj/cs140e/aarch64-none-elf/bin/
 export PATH=$PATH:~/.emacs.d/bin/
+export LSP_USE_PLISTS=true
 
 source $HOME/.cargo/env
 
@@ -25,6 +26,10 @@ alias scp='scp -S ssh-ident'
 export CLASSPATH=".:/usr/local/lib/antlr-4.7-complete.jar:$CLASSPATH"
 alias antlr4='java -jar /usr/local/lib/antlr-4.7-complete.jar'
 alias grun='java org.antlr.v4.gui.TestRig'
+
+if [[ -z "$TERM" || "$TERM"=dumb ]]; then
+   export BUILDKIT_PROGRESS=plain
+fi
 
 # Test for an interactive shell.  There is no need to set anything
 # past this point for scp and rcp, and it's important to refrain from
