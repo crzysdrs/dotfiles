@@ -9,7 +9,8 @@ export SSH_BIN=$HOME/bin/ssh-ident
 export PATH=$HOME/bin/:$HOME/.local/bin/:$HOME/.cabal/bin:$PATH
 export PATH=$PATH:$HOME/proj/cs140e/aarch64-none-elf/bin/
 export PATH=$PATH:~/.emacs.d/bin/
-export LSP_USE_PLISTS=true
+#plists break flycheck https://github.com/emacs-lsp/lsp-mode/issues/1807
+#export LSP_USE_PLISTS=true
 
 source $HOME/.cargo/env
 

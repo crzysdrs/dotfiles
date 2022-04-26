@@ -39,9 +39,10 @@
   (el-get-elpa-build-local-recipes))
 
 (el-get-bundle rustic
-	       (defvar rustic-format-on-save t)
-	       (defvar rustic-format-display-method 'ignore)
+               (defvar rustic-format-on-save t)
+               ;;(defvar rustic-format-display-method 'ignore)
 	       ;;(defvar rustic-lsp-format t)
+               ;;(defvar rustic-format-trigger 'on-save)
                ;;(push 'rustic-clippy flycheck-checkers)
 	       )
 (el-get-bundle framemove
@@ -60,12 +61,11 @@
 	       (defvar lsp-rust-analyzer-cargo-watch-command "clippy")
 	       (defvar lsp-eldoc-render-all t)
 	       (defvar lsp-idle-delay 0.6)
-	       ;; Inlay Hints either do not work or have been disabled in rust analyzer
-	       (defvar lsp-rust-analyzer-inlay-hints-mode t)
 	       (defvar lsp-rust-analyzer-server-display-inlay-hints t)
 
 	       ;;For debugging
-	       ;; (defvar lsp-log-io t)
+	       ;;(defvar lsp-log-io t)
+               
                (setq gc-cons-threshold 100000000)
                (setq read-process-output-max (* 1024 1024))
 	       )
@@ -79,6 +79,7 @@
 (el-get-bundle ivy
 	       (ivy-mode)
 	       )
+(el-get-bundle company)
 
 (el-get-bundle doom-modeline
   (doom-modeline-mode 1)
