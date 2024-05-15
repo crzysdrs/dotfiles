@@ -57,6 +57,7 @@
 (straight-use-package 'lsp-mode)
 (defvar lsp-eldoc-render-all t)
 (defvar lsp-idle-delay 0.6)
+(defvar lsp-inlay-hint-enable t)
 (defvar lsp-rust-analyzer-server-display-inlay-hints t)
 (straight-use-package 'doom-modeline)
 (doom-modeline-mode 1)
