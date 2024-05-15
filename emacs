@@ -24,75 +24,56 @@
 	     (define-key comint-mode-map "\M-p" 'comint-previous-matching-input-from-input)
 	     ))
 
-(add-to-list 'load-path "~/.emacs.d/el-get/el-get")
+(defvar bootstrap-version)
+(let ((bootstrap-file
+       (expand-file-name
+        "straight/repos/straight.el/bootstrap.el"
+        (or (bound-and-true-p straight-base-dir)
+            user-emacs-directory)))
+      (bootstrap-version 7))
+  (unless (file-exists-p bootstrap-file)
+    (with-current-buffer
+        (url-retrieve-synchronously
+         "https://raw.githubusercontent.com/radian-software/straight.el/develop/install.el"
+         'silent 'inhibit-cookies)
+      (goto-char (point-max))
+      (eval-print-last-sexp)))
+  (load bootstrap-file nil 'nomessage))
 
-(unless (require 'el-get nil 'noerror)
-  (with-current-buffer
-      (url-retrieve-synchronously
-       "https://raw.githubusercontent.com/dimitri/el-get/master/el-get-install.el")
-    (goto-char (point-max))
-    (eval-print-last-sexp)))
+(setq package-enable-at-startup nil)
 
-(add-to-list 'el-get-recipe-path "~/.emacs.d/el-get-user/recipes")	      
-
-(unless (file-directory-p el-get-recipe-path-elpa)
-  (el-get-elpa-build-local-recipes))
-
-(el-get-bundle rustic
-               (defvar rustic-format-on-save t)
-               ;;(defvar rustic-format-display-method 'ignore)
-	       ;;(defvar rustic-lsp-format t)
-               ;;(defvar rustic-format-trigger 'on-save)
-               ;;(push 'rustic-clippy flycheck-checkers)
-	       )
-(el-get-bundle framemove
-	       (global-set-key (kbd "C-c <left>")  'windmove-left)
-	       (global-set-key (kbd "C-c <right>") 'windmove-right)
-	       (global-set-key (kbd "C-c <up>")    'windmove-up)
-	       (global-set-key (kbd "C-c <down>")  'windmove-down)
-	       (setq framemove-hook-into-windmove t)
-	       )
-(el-get-bundle magit
-	       :info nil
-	       )
-(el-get-bundle markdown-mode)
-(el-get-bundle dtrt-indent)
-(el-get-bundle lsp-mode
-	       (defvar lsp-rust-analyzer-cargo-watch-command "clippy")
-	       (defvar lsp-eldoc-render-all t)
-	       (defvar lsp-idle-delay 0.6)
-	       (defvar lsp-rust-analyzer-server-display-inlay-hints t)
-
-	       ;;For debugging
-	       ;;(defvar lsp-log-io t)
-               
-               (setq gc-cons-threshold 100000000)
-               (setq read-process-output-max (* 1024 1024))
-	       )
-(el-get-bundle smex	      
-	       (global-set-key (kbd "M-x") 'smex)
-	       )
-(el-get-bundle flycheck :ensure)
-(el-get-bundle doom-themes
-	       (load-theme 'doom-vibrant t)
-	       )
-(el-get-bundle ivy
-	       (ivy-mode)
-	       )
-(el-get-bundle company)
-
-(el-get-bundle doom-modeline
-  (doom-modeline-mode 1)
-  )
-
-(el-get-bundle docker-tramp)
-(el-get-bundle ccls)
-
-(el-get 'sync)
-
-(require 'cc-mode)
-(require 'ivy)
+;(straight-use-package 'use-package)
+(straight-use-package '(rustic
+                        :fork "emacs-rustic/rustic"
+                        ))
+(defvar rustic-format-on-save t)
+(straight-use-package 'framemove)
+(global-set-key (kbd "C-c <left>")  'windmove-left)
+(global-set-key (kbd "C-c <right>") 'windmove-right)
+(global-set-key (kbd "C-c <up>")    'windmove-up)
+(global-set-key (kbd "C-c <down>")  'windmove-down)
+(setq framemove-hook-into-windmove t)
+(straight-use-package 'magit)
+(straight-use-package 'lsp-mode)
+(defvar lsp-eldoc-render-all t)
+(defvar lsp-idle-delay 0.6)
+(defvar lsp-rust-analyzer-server-display-inlay-hints t)
+(straight-use-package 'doom-modeline)
+(doom-modeline-mode 1)
+(straight-use-package 'smex)
+(global-set-key (kbd "M-x") 'smex)
+(straight-use-package 'ivy)
+(ivy-mode)
 (define-key ivy-minibuffer-map (kbd "TAB") 'ivy-partial)
+(straight-use-package 'docker-tramp)
+(straight-use-package 'markdown-mode)
+(straight-use-package 'cc-mode)
+(straight-use-package 'company)
+(straight-use-package 'doom-themes)
+(load-theme 'doom-vibrant t)
+(straight-use-package 'nerd-icons)
+;;(nerd-icons-install-fonts)
+
 (define-key global-map "\C-cg"    'goto-line)
 (define-key global-map "\C-r"     'isearch-backward-regexp)
 (define-key global-map "\C-s"     'isearch-forward-regexp)
@@ -135,9 +116,3 @@
 
 (require 'tramp)
 (add-to-list 'tramp-remote-path 'tramp-own-remote-path)
-(custom-set-variables
- ;; custom-set-variables was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- '(package-selected-packages '(ccls company project ivy)))
