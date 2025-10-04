@@ -1,18 +1,31 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 import os
 import sys
 import socket
+import subprocess
 
 for x in sys.argv[1:]:
-    newdir = "%s/.ssh/identities/%s" % (os.environ['HOME'], x)
-    rsa = "%s/id_rsa" % newdir
-    rsa_pub = "%s.pub" % rsa
+    newdir = "{}/.ssh/identities/{}".format(os.environ["HOME"], x)
+    rsa = "{}/id_rsa".format(newdir)
+    rsa_pub = "{}.pub".format(rsa)
     if not os.path.exists(newdir):
         os.makedirs(newdir)
     if os.path.exists(rsa):
-        print "Identity for %s already exists" % x
+        print("Identity for {} already exists".format(x))
     else:
-        print "Generating keys for %s" % x
-        os.system("ssh-keygen -t rsa -b 4096 -f %s -C %s@%s" % (rsa, os.environ['USER'], socket.gethostname()))
+        print("Generating keys for {}".format(x))
+        subprocess.check_call(
+            [
+                "ssh-keygen",
+                "-t",
+                "rsa",
+                "-b",
+                "4096",
+                "-f",
+                rsa,
+                "-C",
+                "{}@{}".format(os.environ["USER"], socket.gethostname()),
+            ]
+        )
     f = open(rsa_pub)
-    print f.read()
+    print(f.read())
